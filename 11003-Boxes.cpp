@@ -21,13 +21,11 @@ int main()
 {
     while(cin >> n,n){
         boxes.clear();
-        int maxWeight = 0;
         for(int i=0;i<n;i++){
             cin >> wt >> load;
             boxes.push_back({wt,load});
-            maxWeight = max(maxWeight,max(wt,load));
         }
-        dp = vector<vector<int>>(n,vector<int>(maxWeight+1,-1));
-        printf("%d\n",knapsack(0,maxWeight));
+        dp = vector<vector<int>>(n,vector<int>(6001,-1));
+        printf("%d\n",knapsack(0,6000));
     }
 }
