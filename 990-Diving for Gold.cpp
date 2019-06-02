@@ -32,6 +32,7 @@ int main()
         treasures.clear();
         chosen = vector<vector<bool>>(n+1,vector<bool>(t+1));
         dp = vector<vector<int>>(n+1,vector<int>(t+1,-1));
+
         for(int i=0;i<n;i++){
             scanf("%d %d",&d,&v);
             treasures.push_back({d*3*w,v});
