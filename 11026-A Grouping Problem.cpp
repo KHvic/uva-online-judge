@@ -4,11 +4,12 @@ using namespace std;
 If C[m][k] denotes the sum of products of elements of all subsets of size k chosen from first m elements,
 then we have: C[m][k] = C[m-1][k] + C[m-1][k-1] * A[m], (where A[m] is m-th number in input.)
 Example: consider a,b,c - pascal triangle (same as binomial coefficient)
-// to compute for abc, we take sum to get to (ab) multiply by value of c + all sum of all length 3 subset
-m=0       (1)
-m=1    (1)(a)(0)
-m=2  (1)(a)(ab)(0)
-m=3(1)(a)(ab)(abc)(0)
+// sX = sum of group size X
+// each depth, consider a new character, to get to abc = sum(ab)*c + sum(length 3 groups) 
+m=        (1)
+m=a    (1)(s1)(0)
+m=b  (1)(s1)(s2)(0)
+m=c(1)(s1)(s2)(s3)(0)
 */
 long long dp[1001][1001];
 int main() {
