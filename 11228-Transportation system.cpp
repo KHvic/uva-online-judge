@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-int n,m,a,b,w;
 
 int main()
 {
