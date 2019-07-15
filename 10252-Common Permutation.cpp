@@ -5,8 +5,8 @@ using namespace std;
 int main()
 {
     string a,b;
-    while(cin >> a){
-        cin >> b;
+    while(getline(cin,a)){
+        getline(cin,b);
         int aCount[26] = {};
         int bCount[26] = {};
         for(auto& c : a){
