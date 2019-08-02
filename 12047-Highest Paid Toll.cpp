@@ -5,7 +5,7 @@ using namespace std;
 // perform dijkstra on graph and reverse graph
 // this enable us to find the least weight path centered around any two middle node (for fulfilling the condition of cost < p)
 // iterate all pair of middle node that fulfills the path requirement to find the heaviest edge
-vector<int> dijkstra(int src, vector<vector<pair<int,int>>> graph){
+vector<int> dijkstra(int src, vector<vector<pair<int,int>>>& graph){
     vector<int> dist(graph.size(),1e6);
     priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
     dist[src] = 0;
