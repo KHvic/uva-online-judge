@@ -49,9 +49,9 @@ int main() {
                 if(v != 0) {
                     v--;
                     int sqIdx = (i/n1)*n1+j/n1;
-                    if((row[i]>>v)&1 == 0) alreadyInvalid = true;
-                    if((col[j]>>v)&1 == 0) alreadyInvalid = true;
-                    if((sq[sqIdx]>>v)&1 == 0) alreadyInvalid = true;
+                    if(((row[i]>>v)&1) == 0) alreadyInvalid = true;
+                    if(((col[j]>>v)&1) == 0) alreadyInvalid = true;
+                    if(((sq[sqIdx]>>v)&1) == 0) alreadyInvalid = true;
                     row[i] ^= (1<<v);
                     col[j] ^= (1<<v);
                     sq[sqIdx] ^= (1<<v);
