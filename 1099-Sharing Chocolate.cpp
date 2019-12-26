@@ -25,7 +25,7 @@ bool solve(int bits, int w){
     visited[bits][w] = true, dp[bits][w] = false;
     bool &res = dp[bits][w];
 
-    int b1 = bits-1;
+    int b1 = (bits-1)&bits;
     // split into two bitmask
     while(b1!=0 && !res) {
         int b2 = bits^b1;
