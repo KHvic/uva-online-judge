@@ -68,7 +68,7 @@ void update(int idx, int low, int high, int ops, int qlow, int qhigh){
     // full overlap
     else if(qlow <= low && high <= qhigh) {
         lazy[idx] = ops;
-        updateLazy(idx,low,high);
+        updateLazy(idx, low, high);
     // partial overlap
     } else {
         int mid = (low+high)/2;
