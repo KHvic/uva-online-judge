@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int fastio() { ios_base::sync_with_stdio(false); cout << fixed << setprecision(10); cin.tie(nullptr); return 0; }
+int fastio() { ios_base::sync_with_stdio(false); cout << fixed << setprecision(2); cin.tie(nullptr); return 0; }
 
 int __fastio = fastio();
 
