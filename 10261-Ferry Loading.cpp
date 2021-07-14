@@ -2,27 +2,28 @@
 using namespace std;
 
 vector<int> cars;
-int memo[200][10001];
-bool useLeft[200][10001];
+int memo[201][10001];
+bool useLeft[201][10001];
 int t,l,v;
 
 int knapsack(int idx,int leftRemain,int rightRemain){
-    if(leftRemain<=0 && rightRemain<=0) return 0;
     if(idx == cars.size()) return 0;
-    // memo centered on leftRemain
-    // we don't have to care about rightRemain
-    // since total space used/left at idx is always the same, just center on one of them
+    if(leftRemain - cars[idx] < 0 && rightRemain - cars[idx] < 0) return 0;
     if(memo[idx][leftRemain] != -1) return memo[idx][leftRemain];
-    // try both right and left
-    int left=0,right=0;
-    if(rightRemain >= cars[idx])
-        right = knapsack(idx+1,leftRemain,rightRemain-cars[idx])+1;
-    if(leftRemain >= cars[idx])
-        left = knapsack(idx+1,leftRemain-cars[idx],rightRemain)+1;
+	
+    if (leftRemain - cars[idx] < 0) { 
+	    return memo[idx][leftRemain] = 1 + knapsack(idx + 1, leftRemain, rightRemain - cars[idx]);
+    }
+    if (rightRemain - cars[idx] < 0) { 
+	    useLeft[idx][leftRemain] = true;
+	    return memo[idx][leftRemain] = 1 + knapsack(idx + 1, leftRemain - cars[idx], rightRemain);
+    }
+    int left = knapsack(idx+1,leftRemain-cars[idx],rightRemain);
+    int right = knapsack(idx+1,leftRemain,rightRemain-cars[idx]);
 
-    if(left > right)
+    if(left >= right)
         useLeft[idx][leftRemain] = true;
-    return memo[idx][leftRemain] = max(left,right);
+    return memo[idx][leftRemain] = max(1 + left, 1 + right);
 }
 
 int main()
